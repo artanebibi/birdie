@@ -1,0 +1,227 @@
+[gd_scene load_steps=18 format=3 uid="uid://cgrxfphd5731i"]
+
+[ext_resource type="PackedScene" uid="uid://cvk44u81qnlqc" path="res://Scenes/block.tscn" id="1_eabu5"]
+[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_mxm8q"]
+[ext_resource type="PackedScene" uid="uid://ci241p5a7mj7s" path="res://Scenes/house.tscn" id="2_jng1o"]
+[ext_resource type="PackedScene" uid="uid://cgh8dmfhvdiat" path="res://Scenes/coin.tscn" id="3_q6ek2"]
+[ext_resource type="Environment" uid="uid://doyfdrbpmwoa5" path="res://Resources/level_1_environment.tres" id="4_2ciam"]
+[ext_resource type="MeshLibrary" uid="uid://cr32hsgeobb0s" path="res://Resources/library.tres" id="5_0an66"]
+[ext_resource type="Texture2D" uid="uid://det2b6pimmmye" path="res://Park/gltf/tiny_treats_grass_texture.png" id="6_4evc3"]
+[ext_resource type="PackedScene" uid="uid://dqfffcfwej30s" path="res://Scenes/Player.tscn" id="7_wq6ii"]
+[ext_resource type="PackedScene" uid="uid://0avlvca40k1x" path="res://Scenes/hud.tscn" id="9_co31a"]
+[ext_resource type="PackedScene" uid="uid://f03j22d1rirs" path="res://Park/gltf/bush.gltf" id="10_ct16x"]
+[ext_resource type="PackedScene" uid="uid://dq1v2gh88lw27" path="res://Park/gltf/bush_large.gltf" id="11_k7585"]
+[ext_resource type="PackedScene" uid="uid://dbsay4j46b348" path="res://Park/gltf/cobble_stones_large.gltf" id="12_5xhli"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sp000"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u4d1"]
+albedo_texture = ExtResource("6_4evc3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_nwl2q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xl15w"]
+size = Vector3(1.00977, 1, 1.01514)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwo7m"]
+size = Vector3(0.0167274, 10.5646, 18.1411)
+
+[node name="level 1" type="Node3D"]
+script = ExtResource("1_mxm8q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.726575, 0.687088, 0, -0.687088, -0.726575, -1.45642, 6.29926, -3.47339)
+shadow_enabled = true
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Block1" parent="Blocks" instance=ExtResource("1_eabu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.68119, 0)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_eabu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19661, 8.13406, 0)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_eabu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00505424, 9.01298, -1.94023)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_eabu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17832, 2.43382, -17.5989)
+physics_material_override = SubResource("PhysicsMaterial_sp000")
+
+[node name="House" parent="Blocks" instance=ExtResource("2_jng1o")]
+transform = Transform3D(-0.856158, 0, 0.0106847, 0, 0.856225, 0, -0.0106847, 0, -0.856158, -14.392, -0.6, -18.732)
+
+[node name="Coins" type="Node3D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("3_q6ek2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34669, 1.59344, 4.22666)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("3_q6ek2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25695, 4.2057, 3.29506)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("3_q6ek2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34669, 2.6671, 2.38308)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("3_q6ek2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.214327, 2.68494, -7.04884)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("3_q6ek2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87141, 0.583489, 1.2306)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("3_q6ek2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2718, 2.6671, -20.9855)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_2ciam")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.63429, -27.8861)
+
+[node name="Player" parent="." instance=ExtResource("7_wq6ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6869, 0.312174, -1.3473)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(0.678791, 0, 0, 0, 1.01671, 0, 0, 0, 0.702648, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(96.5557, 0, 0, 0, 1.00195, 0, 0, 0, 93.3533, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_1u4d1")
+mesh = SubResource("BoxMesh_nwl2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(94.722, 0, 0, 0, 1, 0, 0, 0, 90.8174, 0.462509, -1, -0.687339)
+shape = SubResource("BoxShape3D_xl15w")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("5_0an66")
+cell_size = Vector3(1, 1, 2)
+data = {
+"cells": PackedInt32Array(20, 65482, 0)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="FallZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.3431, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FallZone"]
+transform = Transform3D(7990.13, 0, 0, 0, 1, 0, 0, 0, 7.06839, 0.353085, 4.78229, 1.70079)
+shape = SubResource("BoxShape3D_hwo7m")
+
+[node name="HUD" parent="." instance=ExtResource("9_co31a")]
+
+[node name="Bushes" type="Node3D" parent="."]
+
+[node name="bush2" parent="Bushes" instance=ExtResource("10_ct16x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5961, -0.508353, -20.4616)
+
+[node name="bush_large2" parent="Bushes" instance=ExtResource("11_k7585")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9739, -0.508353, -19.76)
+
+[node name="Cobblestone_path" type="Node3D" parent="."]
+
+[node name="cobble_stones_large2" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 0.894783)
+
+[node name="cobble_stones_large4" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, -1.01879)
+
+[node name="cobble_stones_large5" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 2.83591)
+
+[node name="cobble_stones_large6" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 4.61066)
+
+[node name="cobble_stones_large7" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 6.36893)
+
+[node name="cobble_stones_large8" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 8.22012)
+
+[node name="cobble_stones_large9" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 10.0875)
+
+[node name="cobble_stones_large10" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 11.8395)
+
+[node name="cobble_stones_large11" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 13.6592)
+
+[node name="cobble_stones_large12" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6309, -0.534748, 15.6592)
+
+[node name="cobble_stones_large13" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 17.5922)
+
+[node name="cobble_stones_large14" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 19.5187)
+
+[node name="cobble_stones_large15" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 21.391)
+
+[node name="cobble_stones_large16" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 23.14)
+
+[node name="cobble_stones_large17" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 25.14)
+
+[node name="cobble_stones_large18" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 27.0446)
+
+[node name="cobble_stones_large19" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 28.8877)
+
+[node name="cobble_stones_large20" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6364, -0.534748, 30.7752)
+
+[node name="cobble_stones_large21" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5733, -0.502556, 32.1302)
+
+[node name="cobble_stones_large3" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -2.956)
+
+[node name="cobble_stones_large22" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -4.88438)
+
+[node name="cobble_stones_large23" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -6.76106)
+
+[node name="cobble_stones_large24" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -8.59237)
+
+[node name="cobble_stones_large25" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -10.4425)
+
+[node name="cobble_stones_large26" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -12.2692)
+
+[node name="cobble_stones_large27" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -14.0787)
+
+[node name="cobble_stones_large28" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -15.9667)
+
+[node name="cobble_stones_large29" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -17.8199)
+
+[node name="cobble_stones_large30" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -19.7201)
+
+[node name="cobble_stones_large31" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -21.6142)
+
+[node name="cobble_stones_large32" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -23.5459)
+
+[node name="cobble_stones_large33" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -25.4572)
+
+[node name="cobble_stones_large34" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -27.4213)
+
+[node name="cobble_stones_large35" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6332, -0.508353, -29.4416)
+
+[node name="cobble_stones_large36" parent="Cobblestone_path" instance=ExtResource("12_5xhli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.6491, -0.530333, -31.5352)
+
+[connection signal="body_entered" from="FallZone" to="Player" method="_on_fall_zone_body_entered"]

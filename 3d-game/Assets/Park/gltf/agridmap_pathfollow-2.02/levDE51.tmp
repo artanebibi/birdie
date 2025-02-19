@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgrxfphd5731i"]
+
+[ext_resource type="PackedScene" uid="uid://cvk44u81qnlqc" path="res://block.tscn" id="1_0q681"]
+[ext_resource type="PackedScene" uid="uid://cw25vlaar75fm" path="res://art.tscn" id="2_q256u"]
+[ext_resource type="Texture2D" uid="uid://bmhyu527oc4tt" path="res://icon.svg" id="3_2lcon"]
+[ext_resource type="Script" path="res://icon.gd" id="4_it5ax"]
+
+[sub_resource type="Gradient" id="Gradient_dqagx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1su4h"]
+gradient = SubResource("Gradient_dqagx")
+fill_to = Vector2(0.352632, 0.194737)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpobw"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.290196, 0.356863, 0.0627451, 0.0196078)
+metallic = 1.0
+metallic_specular = 0.52
+metallic_texture = SubResource("GradientTexture2D_1su4h")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2dym4"]
+material = SubResource("StandardMaterial3D_kpobw")
+size = Vector3(15, 0.5, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u5v03"]
+size = Vector3(15, 0.5, 15)
+
+[node name="level 1" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.507538, 0.861629, 0, -0.861629, 0.507538, -0.136629, 5.82788, 8.36688)
+fov = 100.078
+
+[node name="Floor" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="box" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_2dym4")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_u5v03")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.726575, 0.687088, 0, -0.687088, -0.726575, -1.45642, 6.29926, -3.47339)
+shadow_enabled = true
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Block1" parent="Blocks" instance=ExtResource("1_0q681")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.68119, 0)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_0q681")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19661, 8.13406, 0)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_0q681")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00505424, 9.01298, -1.94023)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_0q681")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02409, 7.4191, -0.784922)
+
+[node name="Art" parent="." instance=ExtResource("2_q256u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.12158, 2.66179, -4.76837e-07)
+
+[node name="Icon" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0374, 2.86664, 0)
+texture = ExtResource("3_2lcon")
+script = ExtResource("4_it5ax")

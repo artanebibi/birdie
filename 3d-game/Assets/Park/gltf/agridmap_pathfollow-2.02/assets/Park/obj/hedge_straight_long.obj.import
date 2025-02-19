@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://yfhcli0job0d"
+path="res://.godot/imported/hedge_straight_long.obj-2d9f41010a6920fc00fcd86b8ce9b656.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hedge_straight_long.obj-2d9f41010a6920fc00fcd86b8ce9b656.mesh"]
+
+source_file="res://Assets/Assets/obj/hedge_straight_long.obj"
+dest_files=["res://.godot/imported/hedge_straight_long.obj-2d9f41010a6920fc00fcd86b8ce9b656.mesh", "res://.godot/imported/hedge_straight_long.obj-2d9f41010a6920fc00fcd86b8ce9b656.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

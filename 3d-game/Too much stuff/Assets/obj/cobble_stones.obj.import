@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cipk8jilxgeyb"
+path="res://.godot/imported/cobble_stones.obj-c440f63240f39b722f2f5b0d2c76ac71.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cobble_stones.obj-c440f63240f39b722f2f5b0d2c76ac71.mesh"]
+
+source_file="res://Too much stuff/Assets/obj/cobble_stones.obj"
+dest_files=["res://.godot/imported/cobble_stones.obj-c440f63240f39b722f2f5b0d2c76ac71.mesh", "res://.godot/imported/cobble_stones.obj-c440f63240f39b722f2f5b0d2c76ac71.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

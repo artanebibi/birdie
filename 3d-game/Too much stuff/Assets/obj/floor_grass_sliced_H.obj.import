@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8ojwlajrhv6t"
+path="res://.godot/imported/floor_grass_sliced_H.obj-8a59edade33eb9b898c1223428e32a41.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_grass_sliced_H.obj-8a59edade33eb9b898c1223428e32a41.mesh"]
+
+source_file="res://Too much stuff/Assets/obj/floor_grass_sliced_H.obj"
+dest_files=["res://.godot/imported/floor_grass_sliced_H.obj-8a59edade33eb9b898c1223428e32a41.mesh", "res://.godot/imported/floor_grass_sliced_H.obj-8a59edade33eb9b898c1223428e32a41.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
